@@ -1,11 +1,14 @@
 package pageObjects;
-
-import org.junit.jupiter.api.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-class InstragamTest {
+class InstagramTest {
     static ChromeDriver driver;
     static Instagram instagram;
 
