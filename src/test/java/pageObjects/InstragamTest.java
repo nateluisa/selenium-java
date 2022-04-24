@@ -6,17 +6,17 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import static org.junit.jupiter.api.Assertions.*;
+
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class InstagramTest {
     static ChromeDriver driver;
-    static Instagram instagram;
+    static InstagramLogin instagram;
 
     @BeforeAll
     public static void  before() {
         System.setProperty("webdriver.chrome.driver","C:\\Chrome Driver\\chromedriver.exe");
         driver = new ChromeDriver();
-        instagram = new Instagram(driver);
+        instagram = new InstagramLogin(driver);
     }
     @Test
     @Order(1)
@@ -27,12 +27,13 @@ class InstagramTest {
     @Test
     @Order(2)
     public void login() throws InterruptedException {
-        instagram.login("pontodogameplay","agathaluiza1512199322022011");
-        Thread.sleep(5000);
+        InstagramLoginSave instagramLoginSave = instagram.login("pontodogameplay","agathaluiza1512199322022011");
+        instagramLoginSave.noSavingLogin();
+        Thread.sleep(15000);
     }
 
     @AfterAll
-    public void close() {
+    public static void close() {
         driver.close();
     }
 }

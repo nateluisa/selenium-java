@@ -8,9 +8,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.time.Duration;
 import java.util.List;
 
-public class Instagram {
+public class InstagramLogin {
     private ChromeDriver driver;
-    public Instagram(ChromeDriver driver) {
+    public InstagramLogin(ChromeDriver driver) {
         this.driver = driver;
     }
 
@@ -23,18 +23,18 @@ public class Instagram {
 
     }
 
-    public void login(String user, String password) {
-        WebElement loginField = driver.findElement(By.name("username"));
+    public InstagramLoginSave login(String user, String password) {
+        WebElement userNameField = driver.findElement(By.name("username"));
         WebElement passwordField = driver.findElement(By.name("password"));
-        loginField.sendKeys(user);
+        userNameField.sendKeys(user);
         passwordField.sendKeys(password);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        WebElement loginButton = driver.findElement(By.xpath("//*[@id=\"loginForm\"]/div/div[3]/button"));
+        loginButton.click();
+        return new InstagramLoginSave(driver);
     }
 
-    public void noSavingLogin() {
-        driver.findElement(By.className("cmbtv")).click();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-    }
+
 
     public void likingPictures() {
         driver.findElement(By.linkText("/explore")).click();
