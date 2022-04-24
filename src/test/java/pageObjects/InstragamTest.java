@@ -28,7 +28,9 @@ class InstagramTest {
     @Order(2)
     public void login() throws InterruptedException {
         InstagramLoginSave instagramLoginSave = instagram.login("pontodogameplay","agathaluiza1512199322022011");
-        instagramLoginSave.noSavingLogin();
+        InstagramFeed instagramFeed = instagramLoginSave.noSavingLogin();
+        Thread.sleep(5000);
+        instagramFeed.noNotifications();
         Thread.sleep(15000);
     }
 

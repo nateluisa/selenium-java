@@ -12,8 +12,9 @@ public class InstagramLoginSave {
         this.driver = driver;
     }
 
-    public void noSavingLogin() {
+    public InstagramFeed noSavingLogin() {
         driver.findElement(By.className("cmbtv")).click();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        return new InstagramFeed(driver);
     }
 }
