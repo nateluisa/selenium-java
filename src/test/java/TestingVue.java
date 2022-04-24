@@ -18,9 +18,9 @@ class TestingVue {
     }
     @Test
     public void testingPicInsert() {
+
         driver = new ChromeDriver();
         driver.get("http://localhost:8080/");
-        findCadastro()
         driver.findElement(By.linkText("Cadastro")).click();
         System.out.println("Informe uma nova imagem ao" + driver.getTitle());
         driver.findElement(By.id("titulo")).sendKeys("Foto para teste de automação");
@@ -29,12 +29,6 @@ class TestingVue {
         driver.findElement(By.id("gravar")).click();
         System.out.println("Foto salva no" + driver.getTitle());
         driver.findElement(By.linkText("Home")).click();
-
-
-
-
-
-
 
     }
 }
